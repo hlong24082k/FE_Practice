@@ -68,7 +68,7 @@ body{
 
 .dynamic:hover .notion{
     width: 70%;
-    animation: dynamicNotion 0.5s 0.5s both;
+    animation: dynamicNotion 0.5s both;
 }
 
 @keyframes dynamicNotion {
