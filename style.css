@@ -1,3 +1,8 @@
+:root{
+    --dynamic-width: 100px;
+
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -7,13 +12,68 @@ body{
     min-height: 100vh;
     background: linear-gradient(#e66465, #9198e5);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
     box-shadow:
     0 0 0 4px rgba(0,0,0,0.1),
     inset 0 0 0 3px #EFEFEF,
     inset 0 0 10px black,
     0 0 10px rgba(0,0,0,0.2);
+}
+
+.dynamic{
+    position: relative;
+    /* top: 5%; */
+    width: var(--dynamic-width);
+    height: 30px;
+    margin-bottom: 10%;
+    background-color: black;
+    border-radius: 15px;
+    transition: 0.5s;
+}
+
+.dynamic:hover{
+    animation: dynamic 1s both;
+    width: 200px;
+}
+
+.dynamic .show-time{
+    position: absolute;
+    color: white;
+    z-index: 1000;
+    width: 100%;
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+    /* padding-bottom: 2px; */
+    /* transform: translateX(); */
+    transition: all 0.5s;
+}
+
+.dynamic:hover .show-time{
+    transform: translateX(-35%);
+}
+
+.dynamic .notion{
+    position: absolute;
+    right: 0;
+    width: 0%;
+    height: 100%;
+    color: white;
+    font-family: 'Pacifico', cursive;
+    overflow-x: hidden;
+    white-space: nowrap;
+
+}
+
+.dynamic:hover .notion{
+    width: 70%;
+    animation: dynamicNotion 0.5s 0.5s both;
+}
+
+@keyframes dynamicNotion {
+    from{text-indent: -150px;}
+    to{text-indent: 0px;}
 }
 
 .clock{
@@ -38,6 +98,7 @@ body{
     width: 50%;
     height: 2px;
     background: black;
+    transform: rotate(90deg);
     transform-origin: 100%;
     transition: all 0.05s;
     transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
